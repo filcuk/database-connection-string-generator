@@ -1,0 +1,35 @@
+---
+description: Do not invent SVG markup in app/icons.js — add skeleton entries only
+globs: app/icons.js
+alwaysApply: false
+---
+
+# Icons (`app/icons.js`)
+
+Do **not** fabricate or guess SVG path markup. Agents are not reliable sources for icon geometry.
+
+When a new icon is needed:
+
+1. Add a **skeleton entry** to `ICONS` with metadata only — leave `markup` empty or as a placeholder the user will replace.
+2. Set `viewBox`, `name` (Icônes collection id), and `attribution` when sourcing from Material Icons.
+3. Wire up usage elsewhere (`data-icon="…"` in HTML or `createIcon()` in JS) if needed.
+4. **Stop** and tell the user which skeleton was added so they can paste path markup from [Icônes — Material Icons (Round)](https://icones.js.org/collection/ic?s=info&variant=Round).
+
+Prefer `{ ref: "existing-icon" }` when an existing icon already fits — no new entry required.
+
+## Skeleton example
+
+```javascript
+"my-icon": {
+  viewBox: "0 0 24 24",
+  markup: ``,
+  attribution: ICON_ATTRIBUTIONS.materialIcons,
+  name: "round-my-icon", // Icônes id — user fills in markup
+},
+```
+
+## Do not
+
+- Invent `<path>` or other SVG elements from memory
+- Copy approximate paths from training data
+- Add fully populated icon entries unless the user explicitly pasted the source SVG markup in the chat

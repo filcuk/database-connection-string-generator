@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Rules for AI agents working in this microapp template repository.
+Rules for AI agents working in this repository.
 
 ## Confirm before complexity
 
@@ -10,7 +10,7 @@ Ask the user before adding:
 - Build tools or bundlers (Vite, Webpack, Rollup, etc.)
 - Non-trivial architecture (state managers, routers, SSR)
 
-Prefer the simplest approach that fits the existing template.
+Prefer the simplest approach that fits the existing stack.
 
 ## Stay vanilla
 
@@ -85,7 +85,7 @@ Respect `prefers-reduced-motion: reduce` — transitions live in components; glo
 
 ## Keep GitHub Pages deployable
 
-- Entry HTML files live at the repo root (`index.html`, optional pages like `demo.html`)
+- Entry HTML files live at the repo root (`index.html`, optional additional pages)
 - Shared assets live under `app/`
 - Avoid features that require a backend or server-only APIs
 - ES modules need a local server for development (`npx serve .`) — document if adding fetch-based features
@@ -106,10 +106,3 @@ Match the established look (based on [pqm-stepper](https://github.com/filcuk/pqm
 - Tooltips: `aria-describedby` linking trigger to `#tooltip` on show/hide; keyboard focus support
 - Prefer semantic HTML (`header`, `main`, `footer`, `button`)
 - Popup menus: `aria-expanded` on toggle buttons
-
-## When extending this template
-
-1. Read `README.md` for available components
-2. Check `demo.html` for usage examples
-3. Keep changes focused — one concern per file when possible
-4. Update `README.md` if you add a new reusable component or workflow step
